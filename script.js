@@ -7,6 +7,15 @@ let activeSlide = 0;
 
 setBgToBoddy();
 
+rightBtn.addEventListener("click", () => {
+  activeSlide++;
+  if (activeSlide > slides.length - 1) {
+    activeSlide = 0;
+  }
+  setBgToBoddy();
+  setActiveSlide();
+});
+
 function setBgToBoddy() {
   body.style.backgroundImage = slides[activeSlide].style.backgroundImage;
 }
@@ -15,6 +24,6 @@ function setActiveSlide() {
   slides.forEach((slide) => {
     slide.classList.remove("active");
 
-    slide[activeSlide].classList.add("active");
+    slides[activeSlide].classList.add("active");
   });
 }
